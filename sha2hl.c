@@ -97,7 +97,7 @@ char           *
 SHA256_End(SHA256_CTX *ctx, char buffer[])
 {
 	unsigned char          digest[SHA256_DIGEST_LENGTH], *d = digest;
-	unsigned char	       *ret;
+	char		       *ret;
 	int             i;
 
 	/* Sanity check: */
@@ -126,7 +126,7 @@ SHA256_Data(const uint8_t * data, size_t len, unsigned char *digest)
 
 	SHA256_Init(&ctx);
 	SHA256_Update(&ctx, data, len);
-	return SHA256_End(&ctx, digest);
+	return SHA256_End(&ctx, (char *)digest);
 }
 
 char           *
@@ -157,7 +157,7 @@ char           *
 SHA384_End(SHA384_CTX * ctx, char buffer[])
 {
 	unsigned char          digest[SHA384_DIGEST_LENGTH], *d = digest;
-	unsigned char	       *ret;
+	char		       *ret;
 	int             i;
 
 	/* Sanity check: */
@@ -217,7 +217,7 @@ char           *
 SHA512_End(SHA512_CTX * ctx, char buffer[])
 {
 	unsigned char          digest[SHA512_DIGEST_LENGTH], *d = digest;
-	unsigned char	       *ret;
+	char		       *ret;
 	int             i;
 
 	/* Sanity check: */

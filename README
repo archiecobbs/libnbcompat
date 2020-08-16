@@ -1,5 +1,5 @@
-This project is a straight import of NetBSD's libnbcompat library.
-It contains a straight checkout of the code using CVS.
+This project is a straight import of NetBSD's libnbcompat library,
+with a few fixes and tweaks to help out when building on Linux.
 
 ================== ORIGINAL README FOLLOWS ==================
 
