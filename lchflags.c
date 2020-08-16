@@ -36,6 +36,72 @@
 #include <nbcompat/stat.h>
 #include <nbcompat/unistd.h>
 
+/* Linux glibc does not have the cflags(2) system call */
+#ifdef __linux__
+
+#include <sys/ioctl.h>
+#include <fcntl.h>
+
+#define EXT2_IOC_SETFLAGS               _IOW('f', 2, long)
+
+#ifdef O_LARGEFILE
+#define FILE_OPEN_FLAGS (O_RDONLY|O_NONBLOCK|O_LARGEFILE)
+#else
+#define FILE_OPEN_FLAGS (O_RDONLY|O_NONBLOCK)
+#endif
+
+int
+lchflags(const char *path, unsigned long flags)
+{
+	struct stat sb;
+	int iflags;
+	int esave;
+	int fd;
+	int r;
+
+	/* Target must be regular file or directory */
+	if (lstat(path, &sb) == -1)
+		return -1;
+	if (!S_ISREG(sb.st_mode) && !S_ISDIR(sb.st_mode))
+		goto unsupported;
+
+	/* Apparently ext2/3/4 has its own version of some flags */
+#ifdef EXT2_IMMUTABLE_FL
+	if (flags & UF_IMMUTABLE)
+		flags |= EXT2_IMMUTABLE_FL;
+#endif
+#ifdef EXT2_APPEND_FL
+	if (flags & UF_APPEND)
+		flags |= EXT2_APPEND_FL;
+#endif
+#ifdef EXT2_NODUMP_FL
+	if (flags & UF_NODUMP)
+		flags |= EXT2_NODUMP_FL;
+#endif
+
+	/* Have to set flags using ioctl(2) on Linux */
+	if ((fd = open(path, FILE_OPEN_FLAGS)) == -1)
+		return -1;
+	iflags = (int)flags;
+	if ((r = ioctl(fd, EXT2_IOC_SETFLAGS, &iflags)) == -1) {
+		esave = errno;
+		close(fd);
+		errno = esave;
+		return r;
+	}
+
+	/* Done */
+	close(fd);
+	return 0;
+
+unsupported:
+	/* No can do */
+	errno = EOPNOTSUPP;
+	return -1;
+}
+
+#else	/* !__linux__ */
+
 int
 lchflags(const char *path, unsigned long flags)
 {
@@ -48,3 +114,5 @@ lchflags(const char *path, unsigned long flags)
 	}
 	return (chflags(path, flags));
 }
+
+#endif	 /* !__linux__ */
