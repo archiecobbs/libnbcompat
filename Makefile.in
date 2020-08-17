@@ -3,6 +3,8 @@
 
 srcdir=		@srcdir@
 prefix= 	@prefix@
+exec_prefix= 	@exec_prefix@
+libdir= 	@libdir@
 VPATH=		@srcdir@
 SHELL=		/bin/sh
 
@@ -85,11 +87,11 @@ nbcompat/nbconfig.h: nbcompat/config.h nbcompat.awk
 	$(AWK) -f nbcompat.awk nbcompat/config.h > $@
 
 install:
-	$(INSTALL) -m 755 -d ${DESTDIR}$(prefix)/lib
-	$(INSTALL) -m $(LIBMODE) ${LIB} ${DESTDIR}$(prefix)/lib
-	$(RANLIB) ${DESTDIR}$(prefix)/lib/$(LIB)
 	$(INSTALL) -m 755 -d ${DESTDIR}$(prefix)/include
 	$(INSTALL) -m 755 -d ${DESTDIR}$(prefix)/include/nbcompat
+	$(INSTALL) -m 755 -d ${DESTDIR}$(libdir)
+	$(INSTALL) -m $(LIBMODE) ${LIB} ${DESTDIR}$(libdir)
+	$(RANLIB) ${DESTDIR}$(libdir)/$(LIB)
 	@for file in $(INCS); do \
 		echo "$(INSTALL) -m 444 $$file ${DESTDIR}$(prefix)/include/$$file"; \
 		$(INSTALL) -m 444 $$file ${DESTDIR}$(prefix)/include/$$file; \
