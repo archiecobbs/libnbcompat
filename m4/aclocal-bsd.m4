@@ -21,7 +21,7 @@ dnl			AC_MESSAGE_RESULT(no)
 dnl			ActionFail
 dnl	)
 dnl
-AC_DEFUN(AC_MSG_TRY_COMPILE, [
+AC_DEFUN([AC_MSG_TRY_COMPILE], [
 	AC_CACHE_CHECK($1, $2, [
 		AC_TRY_COMPILE([ $3 ], [ $4; ], [ $2=yes ], [ $2=no ])
 	])
@@ -42,7 +42,7 @@ dnl			    ActionPass [,ActionFail] )
 dnl
 dnl as AC_MSG_TRY_COMPILE, but uses AC_TRY_LINK instead of AC_TRY_COMPILE
 dnl
-AC_DEFUN(AC_MSG_TRY_LINK, [
+AC_DEFUN([AC_MSG_TRY_LINK], [
 	AC_CACHE_CHECK($1, $2, [
 		AC_TRY_LINK([ $3 ], [ $4; ], [ $2=yes ], [ $2=no ])
 	])
@@ -90,7 +90,7 @@ dnl
 dnl The check for libresolv is in case you are attempting to link statically
 dnl and happen to have a libresolv.a lying around (and no libnsl.a).
 dnl
-AC_DEFUN(AC_LIBRARY_NET, [
+AC_DEFUN([AC_LIBRARY_NET], [
    # Most operating systems have gethostbyname() in the default searched
    # libraries (i.e. libc):
    AC_CHECK_FUNC(gethostbyname, ,

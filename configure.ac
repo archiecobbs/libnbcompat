@@ -1,23 +1,51 @@
-dnl $NetBSD: configure.ac,v 1.88 2020/05/24 21:51:54 nia Exp $
+# Define the package version numbers and the bug reporting link
+m4_define([LIBNBCOMPAT_MAJOR], 1)
+m4_define([LIBNBCOMPAT_MINOR], 0)
+m4_define([LIBNBCOMPAT_PATCH], 0)
+m4_define([LIBNBCOMPAT_BUGS], [https://github.com/archiecobbs/libnbcompat/issues])
 
-dnl Process this file with autoconf to produce a configure script.
-AC_PREREQ(2.52)
-AC_INIT([libnbcompat], [20190708], [joerg@NetBSD.org])
-AC_CONFIG_HEADER(nbcompat/config.h)
+# Define libtool versioning numbers; note this is not the same as the project version.
+# See Autobook, Section 11.4.
+m4_define([LIBNBCOMPAT_CURRENT], 0)
+m4_define([LIBNBCOMPAT_REVISION], 0)
+m4_define([LIBNBCOMPAT_AGE], 0)
+
+# Initialize autoconf & automake.
+AC_PREREQ(2.59)
+AC_INIT([libnbcompat], [LIBNBCOMPAT_MAJOR.LIBNBCOMPAT_MINOR.LIBNBCOMPAT_PATCH], [LIBNBCOMPAT_BUGS])
+AC_CONFIG_AUX_DIR([config])
+AC_CONFIG_HEADERS([nbcompat/nbconfig.h])
+AC_CONFIG_MACRO_DIRS([m4])
+AC_USE_SYSTEM_EXTENSIONS
+AM_INIT_AUTOMAKE([1.9 foreign subdir-objects])
+LT_INIT
+
+# Define macro variables for the package version numbers
+AC_DEFINE([LIBNBCOMPAT_VERSION_MAJOR], LIBNBCOMPAT_MAJOR, [Define the major version number.])
+AC_DEFINE([LIBNBCOMPAT_VERSION_MINOR], LIBNBCOMPAT_MINOR, [Define the minor version number.])
+AC_DEFINE([LIBNBCOMPAT_VERSION_PATCH], LIBNBCOMPAT_PATCH, [Define the patch version number.])
+AC_DEFINE([LIBNBCOMPAT_VERSION_STRING], "LIBNBCOMPAT_MAJOR.LIBNBCOMPAT_MINOR.LIBNBCOMPAT_PATCH", [Define the version string.])
+
+# Define substitutions for the libtool version numbers
+LIBNBCOMPAT_LT_CURRENT=LIBNBCOMPAT_CURRENT
+LIBNBCOMPAT_LT_REVISION=LIBNBCOMPAT_REVISION
+LIBNBCOMPAT_LT_AGE=LIBNBCOMPAT_AGE
+AC_SUBST(LIBNBCOMPAT_LT_CURRENT)
+AC_SUBST(LIBNBCOMPAT_LT_REVISION)
+AC_SUBST(LIBNBCOMPAT_LT_AGE)
+
 AC_ARG_PROGRAM
 
 AC_CANONICAL_HOST
 AC_GNU_SOURCE
 CANONICAL_HOST=$host
 AC_SUBST(CANONICAL_HOST)
-AC_SUBST(INCLUDES)
 
 # Checks for programs.
 AC_PROG_MAKE_SET
 AC_PROG_CC_C99
 AC_PROG_INSTALL
 AC_PROG_LN_S
-AC_PROG_RANLIB
 AC_PROG_AWK
 AC_CHECK_PROG(AR, ar, ar)
 
@@ -183,7 +211,7 @@ esac
 
 AC_ARG_ENABLE([db],
 	[AS_HELP_STRING([--enable-db], [include DB implementation])])
-AC_SUBST(WITH_DB, $enable_db)
+AM_CONDITIONAL([WITH_DB], [test x$enable_db = xtrue])
 AC_CHECK_FUNCS(issetugid)
 
 AC_ARG_ENABLE([bsd-getopt],
