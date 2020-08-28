@@ -13,10 +13,12 @@ libnbcompat_la_LDFLAGS=		-version-info $(LIBNBCOMPAT_LT_CURRENT):$(LIBNBCOMPAT_L
 AM_CFLAGS=			-Wall
 ACLOCAL_AMFLAGS=		-I m4
 
-EXTRA_libnbcompat_la_DEPENDENCIES:	$(LTLIBOBJS)
-
 # Which files to compile is determined at configure time (see AC_LIBOBJ() invocations in configure.ac)
 libnbcompat_la_SOURCES=
+
+# Not sure why this is necessary, but has something to do with the above use of AC_LIBOBJ()
+libnbcompat_la_LIBADD=			$(LTLIBOBJS)
+EXTRA_libnbcompat_la_DEPENDENCIES:	$(LTLIBOBJS)
 
 # It's bad form to install your "config.h", so we tweak it to make it less harmful
 install-data-hook:
@@ -28,72 +30,6 @@ install-data-hook:
 			< "$${HDRFILE}" > "$${HDRFILE}.new"; \
 		mv "$${HDRFILE}.new" "$${HDRFILE}"; \
 	done
-
-# This ensures that ALL sources are packages up
-EXTRA_libnbcompat_la_SOURCES=	__fts13.c  \
-				__glob13.c \
-				__unsetenv13.c \
-				asprintf.c \
-				engine.c \
-				err.c \
-				fgetln.c \
-				findenv.c \
-				fnmatch.c \
-				fparseln.c \
-				fts.c \
-				getaddrinfo.c \
-				getdelim.c \
-				getenv.c \
-				getline.c \
-				getopt.c \
-				getopt_long.c \
-				gettemp.c \
-				glob.c \
-				isblank.c \
-				lchflags.c \
-				lchmod.c \
-				lchown.c \
-				lutimes.c \
-				md5c.c \
-				md5hl.c \
-				mdXhl.c \
-				mkdtemp.c \
-				mkstemp.c \
-				poll.c \
-				pwcache.c \
-				regcomp.c \
-				regerror.c \
-				regexec.c \
-				regfree.c \
-				rmd160.c \
-				rmd160hl.c \
-				setenv.c \
-				setgroupent.c \
-				setmode.c \
-				setpassent.c \
-				setprogname.c \
-				sha1.c \
-				sha1hl.c \
-				sha2.c \
-				sha2hl.c \
-				shquote.c \
-				snprintf.c \
-				statvfs.c \
-				strdup.c \
-				strerror.c \
-				strlcat.c \
-				strlcpy.c \
-				strmode.c \
-				strnlen.c \
-				strsep.c \
-				strtoll.c \
-				timegm.c \
-				unsetenv.c \
-				unvis.c \
-				usleep.c \
-				utimes.c \
-				vis.c \
-				warn.c
 
 nobase_include_HEADERS=		nbcompat.h \
 				nbcompat/assert.h \
