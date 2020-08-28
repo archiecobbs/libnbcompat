@@ -18,6 +18,17 @@ EXTRA_libnbcompat_la_DEPENDENCIES:	$(LTLIBOBJS)
 # Which files to compile is determined at configure time (see AC_LIBOBJ() invocations in configure.ac)
 libnbcompat_la_SOURCES=
 
+# It's bad form to install your "config.h", so we tweak it to make it less harmful
+install-data-hook:
+	find $(DESTDIR)$(includedir)/nbcompat.h $(DESTDIR)$(includedir)/nbcompat -name '*.h' -print | while read HDRFILE; do \
+		echo "fixing up $${HDRFILE}..."; \
+		$(SED)	-e '/^#define PACKAGE/d' \
+			-e '/^#define VERSION/d' \
+			-e 's/HAVE_\([A-Z_]*\)/LIBNBCOMPAT_HAVE_\1/g' \
+			< "$${HDRFILE}" > "$${HDRFILE}.new"; \
+		mv "$${HDRFILE}.new" "$${HDRFILE}"; \
+	done
+
 # This ensures that ALL sources are packages up
 EXTRA_libnbcompat_la_SOURCES=	__fts13.c  \
 				__glob13.c \

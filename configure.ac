@@ -42,8 +42,10 @@ AC_SUBST(CANONICAL_HOST)
 
 # Checks for programs.
 AC_PROG_CC_C99
+AC_PROG_SED
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
+AC_CHECK_PROG([FIND], [find], [find])
 
 dnl Checks for libraries
 AC_CHECK_LIB(util, fparseln)
