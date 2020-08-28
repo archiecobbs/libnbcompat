@@ -38,6 +38,8 @@
 #ifndef _NBCOMPAT_VIS_H_
 #define	_NBCOMPAT_VIS_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/types.h>
 
 /*

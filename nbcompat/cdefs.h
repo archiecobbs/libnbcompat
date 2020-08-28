@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_SYS_CDEFS_H_
 #define _NBCOMPAT_SYS_CDEFS_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_SYS_CDEFS_H
 # include <sys/cdefs.h>
 #endif

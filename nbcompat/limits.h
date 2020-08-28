@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_LIMITS_H_
 #define _NBCOMPAT_LIMITS_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_LIMITS_H
 # include <limits.h>
 #endif

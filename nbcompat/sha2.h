@@ -36,6 +36,8 @@
 #ifndef NBCOMPAT_SHA2_H_
 #define NBCOMPAT_SHA2_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/types.h>
 
 #if defined(HAVE_NBCOMPAT_SHA2)

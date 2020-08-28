@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_STDLIB_H_
 #define _NBCOMPAT_STDLIB_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_STDLIB_H
 # include <stdlib.h>
 #endif

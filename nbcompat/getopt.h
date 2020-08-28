@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_GETOPT_H_
 #define _NBCOMPAT_GETOPT_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/cdefs.h>
 #include <nbcompat/unistd.h>
 

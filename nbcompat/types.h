@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_SYS_TYPES_H_
 #define _NBCOMPAT_SYS_TYPES_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_SYS_TYPES_H
 # include <sys/types.h>
 #endif

@@ -38,6 +38,8 @@
 #ifndef	_NBCOMPAT_ERR_H_
 #define	_NBCOMPAT_ERR_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_ERR_H
 # include <err.h>
 #else

@@ -74,6 +74,8 @@
 #ifndef _NBCOMPAT_REGEX_H_
 #define	_NBCOMPAT_REGEX_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/cdefs.h>
 #include <nbcompat/types.h>
 

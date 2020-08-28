@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_POLL_H_
 #define	_NBCOMPAT_POLL_H_
 
+#include <nbcompat/nbconfig.h>
+
 typedef unsigned int	nfds_t;
 
 struct pollfd {

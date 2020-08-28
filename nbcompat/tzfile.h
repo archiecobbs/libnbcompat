@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_TZFILE_H_
 #define _NBCOMPAT_TZFILE_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_TZFILE_H
 # include <tzfile.h>
 #endif

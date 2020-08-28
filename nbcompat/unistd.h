@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_UNISTD_H_
 #define _NBCOMPAT_UNISTD_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_UNISTD_H
 # include <unistd.h>
 #endif

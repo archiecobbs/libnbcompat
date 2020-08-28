@@ -595,12 +595,19 @@ if test $have_std_vsnprintf = no; then
 	AC_LIBOBJ(snprintf)
 fi
 
+AH_TOP([
+#ifndef _NBCOMPAT_NBCONFIG_H
+#define _NBCOMPAT_NBCONFIG_H
+])
+
 AH_BOTTOM([
 /* NBCOMPAT template section follows. */
 
 #ifndef HAVE___ATTRIBUTE__
 # define __attribute__(x)
 #endif
+
+#endif /* <nbcompat/nbconfig.h> included */
 ])
 
 AC_CONFIG_FILES([Makefile])

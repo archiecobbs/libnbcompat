@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_GRP_H_
 #define _NBCOMPAT_GRP_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_GRP_H
 # include <grp.h>
 #endif

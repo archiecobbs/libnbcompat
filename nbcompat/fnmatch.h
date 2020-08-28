@@ -34,6 +34,8 @@
 #ifndef	_NBCOMPAT_FNMATCH_H_
 #define	_NBCOMPAT_FNMATCH_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_FNMATCH_H
 # include <fnmatch.h>
 #endif

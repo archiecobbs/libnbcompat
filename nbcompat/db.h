@@ -34,6 +34,8 @@
 #ifndef _NBCOMPAT_DB_H_
 #define	_NBCOMPAT_DB_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/types.h>
 #include <nbcompat/cdefs.h>
 

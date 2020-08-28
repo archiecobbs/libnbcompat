@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_TERMCAP_H_
 #define _NBCOMPAT_TERMCAP_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_TERMCAP_H
 # include <termcap.h>
 #endif

@@ -9,6 +9,8 @@
 #ifndef _NBCOMPAT_SYS_SHA1_H_
 #define	_NBCOMPAT_SYS_SHA1_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/types.h>
 
 #define SHA1_DIGEST_LENGTH		20

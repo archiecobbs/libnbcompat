@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_STATVFS_H_
 #define _NBCOMPAT_STATVFS_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_SYS_STATVFS_H
 # include <sys/statvfs.h>
 #endif

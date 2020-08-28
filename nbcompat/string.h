@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_STRING_H_
 #define _NBCOMPAT_STRING_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_STRING_H
 # include <string.h>
 #endif

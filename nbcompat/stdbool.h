@@ -29,6 +29,8 @@
 #ifndef _NBCOMPAT_STDBOOL_H_
 #define _NBCOMPAT_STDBOOL_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_STDBOOL_H
 # include <stdbool.h>
 #else

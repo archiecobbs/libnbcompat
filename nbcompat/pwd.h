@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_PWD_H_
 #define _NBCOMPAT_PWD_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_PWD_H
 # include <pwd.h>
 #endif

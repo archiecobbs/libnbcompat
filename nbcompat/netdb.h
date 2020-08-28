@@ -40,6 +40,8 @@
 #ifndef _NBCOMPAT_NETDB_H
 #define _NBCOMPAT_NETDB_H
 
+#include <nbcompat/nbconfig.h>
+
 #include <sys/types.h>
 #if defined(HAVE_NETDB_H)
 # include <netdb.h>

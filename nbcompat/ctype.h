@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_CTYPE_H_
 #define _NBCOMPAT_CTYPE_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_CTYPE_H
 # include <ctype.h>
 #endif

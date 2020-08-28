@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_PATHS_H_
 #define _NBCOMPAT_PATHS_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_PATHS_H
 # include <paths.h>
 #endif

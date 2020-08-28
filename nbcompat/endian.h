@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_ENDIAN_H_
 #define _NBCOMPAT_ENDIAN_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_ENDIAN_H
 # include <endian.h>
 #endif

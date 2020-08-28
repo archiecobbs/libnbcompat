@@ -38,6 +38,8 @@
 #ifndef _NBCOMPAT_QUEUE_H
 #define _NBCOMPAT_QUEUE_H
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_SYS_QUEUE_H
 # include <sys/queue.h>
 #endif

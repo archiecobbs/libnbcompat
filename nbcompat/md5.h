@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_SYS_MD5_H_
 #define _NBCOMPAT_SYS_MD5_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/types.h>
 
 #define MD5_DIGEST_LENGTH		16

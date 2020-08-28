@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_DIRENT_H_
 #define _NBCOMPAT_DIRENT_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_DIRENT_H
 # include <dirent.h>
 #else

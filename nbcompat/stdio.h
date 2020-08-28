@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_STDIO_H_
 #define _NBCOMPAT_STDIO_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_STDARG_H
 # include <stdarg.h>
 #endif

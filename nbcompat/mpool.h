@@ -34,6 +34,8 @@
 #ifndef _NBCOMPAT_MPOOL_H_
 #define _NBCOMPAT_MPOOL_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/cdefs.h>
 #include <nbcompat/queue.h>
 

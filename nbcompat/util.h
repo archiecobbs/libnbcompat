@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_UTIL_H_
 #define _NBCOMPAT_UTIL_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_UTIL_H
 # include <util.h>
 #endif

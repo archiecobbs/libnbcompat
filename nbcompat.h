@@ -26,8 +26,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <nbcompat/nbconfig.h>
-
 #include <nbcompat/cdefs.h>
 #include <nbcompat/types.h>
 #include <nbcompat/limits.h>

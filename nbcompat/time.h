@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_TIME_H_
 #define _NBCOMPAT_TIME_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if TIME_WITH_SYS_TIME
 # include <sys/time.h>
 # include <time.h>

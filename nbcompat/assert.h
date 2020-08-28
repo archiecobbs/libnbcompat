@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_ASSERT_H_
 #define _NBCOMPAT_ASSERT_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_ASSERT_H
 # include <assert.h>
 #endif

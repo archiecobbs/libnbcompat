@@ -37,6 +37,8 @@
 #ifndef _NBCOMPAT_NDBM_H_
 #define	_NBCOMPAT_NDBM_H_
 
+#include <nbcompat/nbconfig.h>
+
 #include <nbcompat/cdefs.h>
 #include <nbcompat/db.h>
 

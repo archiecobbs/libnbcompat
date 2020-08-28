@@ -24,6 +24,8 @@
 #ifndef _NBCOMPAT_RMD160_H_
 #define _NBCOMPAT_RMD160_H_
 
+#include <nbcompat/nbconfig.h>
+
 #define RMD160_DIGEST_LENGTH		20
 #define RMD160_DIGEST_STRING_LENGTH	41
 

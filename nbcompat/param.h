@@ -32,6 +32,8 @@
 #ifndef _NBCOMPAT_SYS_PARAM_H_
 #define _NBCOMPAT_SYS_PARAM_H_
 
+#include <nbcompat/nbconfig.h>
+
 #if HAVE_SYS_PARAM_H
 # include <sys/param.h>
 #endif
