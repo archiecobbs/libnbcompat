@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Bail on error
+set -e
+
 # Clean up
 echo ">>> cleaning up..." 1>&2
 if test -d libnbcompat-[0-9].[0-9].[0-9]; then
