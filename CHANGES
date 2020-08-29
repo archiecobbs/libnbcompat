@@ -1,4 +1,4 @@
-Version Next
+Version 1.0.1 released August 29, 2020
 
     - Avoid defining PACKAGE, etc. in installed header files
 
