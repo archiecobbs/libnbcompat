@@ -37,7 +37,9 @@ rm -rf  \
     nbcompat/nbconfig.h* \
     nbcompat/stamp-h1 \
     *.o \
-    recno
+    recno \
+    {rmd160,sha1,sha2}-test{,.{log,trs}} \
+    test-suite.log
 
 if [ "$1" = '-n' ]; then
     exit 0
