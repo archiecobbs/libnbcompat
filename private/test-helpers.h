@@ -35,8 +35,9 @@
     int test_ ## name(const char *data, size_t len, const char *expected_digest)            \
     {                                                                                       \
         int err = 0;                                                                        \
-        char buffer[BUFSIZ] = {};                                                           \
-        char *digest = DigestDataFunc(data, len, buffer);                                   \
+        char buffer[BUFSIZ];                                                                \
+        memset(buffer, 0, sizeof(buffer));                                                  \
+        char *digest = DigestDataFunc((const unsigned char *)data, len, (void *)buffer);    \
         if ((err = strcmp(digest, expected_digest) != 0)) {                                 \
             char *encoded = malloc(len*4 + 1);                                              \
             memset(encoded, '\0', len*4 + 1);                                               \
