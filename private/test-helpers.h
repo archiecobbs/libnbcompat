@@ -31,23 +31,23 @@
 
 #include <nbcompat/vis.h>
 
-#define DEFINE_TEST_FUNC(name, DigestDataFunc) \
-	int test_ ## name(const char *data, size_t len, const char *expected_digest) \
-	{																		\
-		int err = 0;														\
-		char buffer[BUFSIZ] = {};											\
-		char *digest = DigestDataFunc(data, len, buffer);					\
-		if ((err = strcmp(digest, expected_digest) != 0)) {					\
-			char *encoded = malloc(len*4 + 1);								\
-			memset(encoded, '\0', len*4 + 1);								\
-			strvisx(encoded, data, len, VIS_TAB | VIS_NL);					\
-			fprintf(stderr, #name "(%s) = %s != %s\n", encoded, digest, expected_digest);	\
-			free(encoded);													\
-		}																	\
-		return err;															\
-	}																		\
-																			\
-	int test_ ## name ## _str(const char *data, const char *expected_digest)		\
-	{																		\
-		return test_ ## name(data, strlen(data), expected_digest);				\
-	}
+#define DEFINE_TEST_FUNC(name, DigestDataFunc)                                              \
+    int test_ ## name(const char *data, size_t len, const char *expected_digest)            \
+    {                                                                                       \
+        int err = 0;                                                                        \
+        char buffer[BUFSIZ] = {};                                                           \
+        char *digest = DigestDataFunc(data, len, buffer);                                   \
+        if ((err = strcmp(digest, expected_digest) != 0)) {                                 \
+            char *encoded = malloc(len*4 + 1);                                              \
+            memset(encoded, '\0', len*4 + 1);                                               \
+            strvisx(encoded, data, len, VIS_TAB | VIS_NL);                                  \
+            fprintf(stderr, #name "(%s) = %s != %s\n", encoded, digest, expected_digest);   \
+            free(encoded);                                                                  \
+        }                                                                                   \
+        return err;                                                                         \
+    }                                                                                       \
+                                                                                            \
+    int test_ ## name ## _str(const char *data, const char *expected_digest)                \
+    {                                                                                       \
+        return test_ ## name(data, strlen(data), expected_digest);                          \
+    }
