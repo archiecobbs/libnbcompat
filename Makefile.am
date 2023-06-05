@@ -20,6 +20,13 @@ libnbcompat_la_SOURCES=
 libnbcompat_la_LIBADD=			$(LTLIBOBJS)
 EXTRA_libnbcompat_la_DEPENDENCIES:	$(LTLIBOBJS)
 
+# Test programs.
+TESTS = rmd160-test sha1-test sha2-test
+check_PROGRAMS = rmd160-test sha1-test sha2-test
+rmd160_test_LDADD = .libs/libnbcompat.a
+sha1_test_LDADD   = .libs/libnbcompat.a
+sha2_test_LDADD   = .libs/libnbcompat.a
+
 # It's bad form to install your "config.h", so we tweak it to make it less harmful
 install-data-hook:
 	find $(DESTDIR)$(includedir)/nbcompat.h $(DESTDIR)$(includedir)/nbcompat -name '*.h' -print | while read HDRFILE; do \
@@ -74,7 +81,10 @@ noinst_HEADERS=			private/cclass.h \
 				private/cname.h \
 				private/pwcache.h \
 				private/regex2.h \
+				private/test-helpers.h \
 				private/utils.h
+
+noinst_SOURCES = private/cavs2c.awk
 
 if WITH_DB
 
