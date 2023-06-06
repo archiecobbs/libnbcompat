@@ -84,7 +84,7 @@ noinst_HEADERS=			private/cclass.h \
 				private/test-helpers.h \
 				private/utils.h
 
-noinst_SOURCES = private/cavs2c.awk
+noinst_SCRIPTS = private/cavs2c.awk
 
 if WITH_DB
 
