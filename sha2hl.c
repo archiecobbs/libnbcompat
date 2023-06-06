@@ -94,7 +94,7 @@ SHA256_File(char *filename, char *buf)
 
 
 char           *
-SHA256_End(SHA256_CTX *ctx, char buffer[])
+SHA256_End(SHA256_CTX *ctx, char buffer[SHA256_DIGEST_STRING_LENGTH])
 {
 	unsigned char          digest[SHA256_DIGEST_LENGTH], *d = digest;
 	char		       *ret;
@@ -154,7 +154,7 @@ SHA384_File(char *filename, char *buf)
 }
 
 char           *
-SHA384_End(SHA384_CTX * ctx, char buffer[])
+SHA384_End(SHA384_CTX * ctx, char buffer[SHA384_DIGEST_STRING_LENGTH])
 {
 	unsigned char          digest[SHA384_DIGEST_LENGTH], *d = digest;
 	char		       *ret;
@@ -214,7 +214,7 @@ SHA512_File(char *filename, char *buf)
 }
 
 char           *
-SHA512_End(SHA512_CTX * ctx, char buffer[])
+SHA512_End(SHA512_CTX * ctx, char buffer[SHA512_DIGEST_STRING_LENGTH])
 {
 	unsigned char          digest[SHA512_DIGEST_LENGTH], *d = digest;
 	char		       *ret;
@@ -240,7 +240,7 @@ SHA512_End(SHA512_CTX * ctx, char buffer[])
 }
 
 char           *
-SHA512_Data(const uint8_t * data, size_t len, char *digest)
+SHA512_Data(const uint8_t * data, size_t len, char digest[SHA512_DIGEST_STRING_LENGTH])
 {
 	SHA512_CTX      ctx;
 
