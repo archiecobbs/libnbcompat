@@ -41,11 +41,17 @@ CANONICAL_HOST=$host
 AC_SUBST(CANONICAL_HOST)
 
 # Checks for programs.
+AC_LANG([C])
 AC_PROG_CC_C99
 AC_PROG_SED
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 AC_CHECK_PROG([FIND], [find], [find])
+
+# Disable strict aliasing optimisations, as sha2.c has undefined behaviour if
+# strict aliasing is enabled. See <https://github.com/archiecobbs/libnbcompat/issues/4>.
+AS_IF([test "x$GCC" = xyes],
+  [AX_APPEND_COMPILE_FLAGS([-fno-strict-aliasing], [CFLAGS])])
 
 dnl Checks for libraries
 AC_CHECK_LIB(util, fparseln)
