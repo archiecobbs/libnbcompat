@@ -23,9 +23,9 @@ EXTRA_libnbcompat_la_DEPENDENCIES:	$(LTLIBOBJS)
 # Test programs.
 TESTS = rmd160-test sha1-test sha2-test
 check_PROGRAMS = rmd160-test sha1-test sha2-test
-rmd160_test_LDADD = .libs/libnbcompat.a
-sha1_test_LDADD   = .libs/libnbcompat.a
-sha2_test_LDADD   = .libs/libnbcompat.a
+rmd160_test_LDADD = .libs/libnbcompat.la
+sha1_test_LDADD   = .libs/libnbcompat.la
+sha2_test_LDADD   = .libs/libnbcompat.la
 
 # It's bad form to install your "config.h", so we tweak it to make it less harmful
 install-data-hook:

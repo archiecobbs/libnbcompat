@@ -1,0 +1,60 @@
+name: ci
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - master
+  pull_request:
+  schedule:
+    - cron: '30 6 * * 1'
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        # The set of compilers provided in each Ubuntu version comes from:
+        #  <https://askubuntu.com/questions/466651/how-do-i-use-the-latest-gcc-on-ubuntu/1163021#1163021>
+        os: [ubuntu-22.04]
+        cc: [gcc-9, gcc-10, gcc-11, gcc-12, clang-11, clang-12, clang-13, clang-14]
+        include:
+        # Latest gcc and clang versions in Ubuntu.
+        - os: ubuntu-latest
+          cc: gcc
+        - os: ubuntu-latest
+          cc: clang
+        # Ubuntu 20.04 -- GCC 7..8 and clang 7..10.
+        # TODO: Find a nicer way to do this...
+        - os: ubuntu-20.04
+          cc: gcc-7
+        - os: ubuntu-20.04
+          cc: gcc-8
+        - os: ubuntu-20.04
+          cc: clang-7
+        - os: ubuntu-20.04
+          cc: clang-8
+        - os: ubuntu-20.04
+          cc: clang-9
+        - os: ubuntu-20.04
+          cc: clang-10
+    name: make check (${{matrix.os}}, ${{ matrix.cc }})
+    runs-on: ${{ matrix.os }}
+    env:
+      CC: ${{ matrix.cc }}
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: install ${{ matrix.cc }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install ${{ matrix.cc }}
+    - name: autoconf
+      run: ./autogen.sh && ./configure
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+
