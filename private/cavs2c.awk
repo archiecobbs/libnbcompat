@@ -1,5 +1,5 @@
 #!/usr/bin/awk -f
-# $NetBSD: cas2c.awk,v 1.0 2023/06/06 16:12:53 cyphar Exp $
+# $NetBSD: cavs2c.awk,v 1.0 2023/06/06 16:12:53 cyphar Exp $
 
 # Copyright (c) 2023 Aleksa Sarai <cyphar@cyphar.com>.
 # All rights reserved.
