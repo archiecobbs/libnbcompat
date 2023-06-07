@@ -1,3 +1,8 @@
+Version Next
+
+    - Fixed SHA256 bug due to strict aliasing violations with newer GCC optimizations (#4).
+    - Add hash test vectors (contributed by Aleksa Sarai)
+
 Version 1.0.1 released August 29, 2020
 
     - Avoid defining PACKAGE, etc. in installed header files
