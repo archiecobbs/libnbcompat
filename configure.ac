@@ -1,7 +1,7 @@
 # Define the package version numbers and the bug reporting link
 m4_define([LIBNBCOMPAT_MAJOR], 1)
 m4_define([LIBNBCOMPAT_MINOR], 0)
-m4_define([LIBNBCOMPAT_PATCH], 1)
+m4_define([LIBNBCOMPAT_PATCH], 2)
 m4_define([LIBNBCOMPAT_BUGS], [https://github.com/archiecobbs/libnbcompat/issues])
 
 # Define libtool versioning numbers; note this is not the same as the project version.
