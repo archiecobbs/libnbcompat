@@ -1,4 +1,4 @@
-Version Next
+Version 1.0.2 released July 3, 2023
 
     - Fixed SHA256 bug due to strict aliasing violations with newer GCC optimizations (#4).
     - Add hash test vectors (contributed by Aleksa Sarai)
